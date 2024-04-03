@@ -1,5 +1,6 @@
 package org.learn.spring_rest;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,6 @@ public class RestTemplateTest {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(fooResourceUrl + "?number=5", String.class);
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        Assertions.assertEquals(response.getBody(),"10");
     }
 }
